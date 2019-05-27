@@ -1,13 +1,17 @@
+name: securelock
+version: git
+summary: SecureLock
+description: >
+  SecureLock is software that lets you make randomly generated passwords.
 
-  name: secure-lock
-  version: '0.1' # just for humans, typically '1.2+git' or '1.3.2'
-  summary: Secure-Lock: |
-    A random password generator.
+confinement: devmode
 
-  grade: stable
+parts:
+  securelock:
+    plugin: python
+    python-version: python2
+    source: .
 
-  parts:
-    my-part:
-      # See 'snapcraft plugins'
-      plugin: nil
-  
+apps:
+    securelock:
+        command: main.py
